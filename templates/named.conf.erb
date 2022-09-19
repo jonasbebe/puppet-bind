@@ -4,6 +4,11 @@ include "<%= @confdir %>/acls.conf";
 include "<%= @confdir %>/keys.conf";
 include "<%= @confdir %>/views.conf";
 include "<%= @confdir %>/servers.conf";
+<%- if @additional_include and @additional_include != '' -%>
+<%-   Array(@additional_include).each do |include| -%>
+		<%= forwarder %>;
+<%-   end -%>
+<%- end -%>
 <%- if @statistics_port -%>
 
 statistics-channels {
@@ -47,6 +52,9 @@ options {
 <%- end -%>
 <%- if @tkey_domain -%>
         tkey-domain "<%= @tkey_domain %>";
+<%- end -%>
+<%- if @additional_options -%>
+        <%= @additional_options %>
 <%- end -%>
 };
 <%- if @include_local -%>

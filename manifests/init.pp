@@ -18,6 +18,8 @@ class bind (
     # NOTE: we need to be able to override this parameter when declaring class,
     # especially when not using hiera (i.e. when using Foreman as ENC):
     $default_zones_include                = $::bind::defaults::default_zones_include,
+    $additional_include                   = undef,
+    $additional_options                   = undef,
 ) inherits bind::defaults {
     if $chroot and !$::bind::defaults::chroot_supported {
         fail('Chroot for bind is not supported on your OS')
