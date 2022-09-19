@@ -6,7 +6,7 @@ include "<%= @confdir %>/views.conf";
 include "<%= @confdir %>/servers.conf";
 <%- if @additional_include and @additional_include != '' -%>
 <%-   Array(@additional_include).each do |include| -%>
-		include <%= include %>;
+		include "<%= include %>";
 <%-   end -%>
 <%- end -%>
 <%- if @statistics_port -%>
