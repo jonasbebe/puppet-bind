@@ -1,2 +1,3 @@
 ---
 bind::include_default_zones: false
+bind::defaults::nsupdate_package: 'bind9-dnsutils'
